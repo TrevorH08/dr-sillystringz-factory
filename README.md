@@ -1,4 +1,4 @@
-# _{Application Name}_
+# _Dr Sillystring'z Factory_
 
 #### By _**{List of contributors}**_
 
