@@ -6,14 +6,14 @@
 
 <h2>Add Machine License</h2>
 
-<h4>Add a Machine License for this Engineer: @Html.DisplayFor(model => model.DoctorName)</h4>
+<h4>Add a Machine License for this Engineer: @Html.DisplayFor(model => model.EngineerName)</h4>
 
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.EngineerId)
 
   @Html.Label("Select Machine")
-  @Html.DropDownLoist("MachineId")
+  @Html.DropDownList("MachineId")
 
   <input type="submit" value="Save" />
 }
