@@ -48,7 +48,6 @@ namespace Factory.Controllers
     public ActionResult Edit(int id)
     {
       var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
-      ViewBag.MachineId = new SelectList( _db.Machines, "MachineId", "MachineName");
       return View(thisEngineer);
     }
 
@@ -89,6 +88,21 @@ namespace Factory.Controllers
     {
       var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
       _db.Engineers.Remove(thisEngineer);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    public ActionResult RemoveMachine(int joinId)
+    {
+      var joinEntry = _db.EngineerMachine.FirstOrDefault( entry => entry.EngineerMachineId == joinId );
+      return View(joinEntry);
+    }
+
+    [HttpPost]
+    public ActionResult RemoveMachineConfirmed(int joinId)
+    {
+      var joinEntry = _db.EngineerMachine.FirstOrDefault( entry => entry.EngineerMachineId == joinId );
+      _db.EngineerMachine.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }

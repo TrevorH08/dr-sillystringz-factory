@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.EngineerMachine
+
+<h4>Remove an Engineer for this Machine: @Html.DisplayFor(model => model.Machine.MachineName)?</h4>
+@using (Html.BeginForm("RemoveEngineerConfirmed", "Machines", FormMethod.Post))
+{
+  @Html.Hidden("joinId", Model.EngineerMachineId)
+
+  <input type="submit" value="Remove" />
+}
+
+<p>@Html.ActionLink("Back to list", "Index")</p>

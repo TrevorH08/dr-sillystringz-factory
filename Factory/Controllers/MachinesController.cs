@@ -70,7 +70,7 @@ namespace Factory.Controllers
 
     public ActionResult AddEngineer(int id)
     {
-      var thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == 0);
+      var thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
       ViewBag.EngineerId = new SelectList( _db.Engineers, "EngineerId", "EngineerName");
       return View(thisMachine);
     }
@@ -101,8 +101,14 @@ namespace Factory.Controllers
       return RedirectToAction("Index");
     }
 
+    public ActionResult RemoveEngineer(int joinId)
+    {
+      var joinEntry = _db.EngineerMachine.FirstOrDefault( entry => entry.EngineerMachineId == joinId );
+      return View(joinEntry);
+    }
+
     [HttpPost]
-    public ActionResult DeleteEngineer(int joinId)
+    public ActionResult RemoveEngineerConfirmed(int joinId)
     {
       var joinEntry = _db.EngineerMachine.FirstOrDefault( entry => entry.EngineerMachineId == joinId );
       _db.EngineerMachine.Remove(joinEntry);
