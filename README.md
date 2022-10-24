@@ -26,7 +26,7 @@ _All CRUD Methods exist for both Engineers and Machines, as well as the added ab
 ## Setup/Installation Requirements
 
 * _Clone project from repo: https://github.com/TrevorH08/dr-sillystringz-factory ._
-* _Make sure you have Entity Framework Core installed at a Global level. To Ensure, paste the following into your terminal 
+* _Make sure you have Entity Framework Core installed at a Global level. To Ensure, paste the following into your terminal_
 ** _$ dotnet tool install --global dotnet-ef --version 5.0.1_
 * _Create a file in the main project folder /Factory called appsettings.json_
 * _Enter this code into the file: 
